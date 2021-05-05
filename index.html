@@ -81,7 +81,7 @@
                 <div class="card text-white bg-dark mb-3 float-left shadow-lg" style="max-width: 20rem;">
                     <div class="card-body">
                         <h4 class="card-title">Type your ISBN below</h4>
-                        <input type="text" class="form-control isbn" placeholder="Enter ISBN">
+                        <input type="text" class="form-control" id="isbn" placeholder="Enter ISBN">
                         <button id="btn">Start Reading</button>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
         <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
         <script>
             const button = document.querySelector("#btn");
-            const isbn = document.querySelector(".isbn");
+            const isbn = document.querySelector("#isbn");
 
             button.addEventListener("click",initialiase);
 

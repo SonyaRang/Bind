@@ -15,11 +15,6 @@
         justify-content: center;
         align-items: center;
     }
-    .showbooks {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     .bindis {
         display: flex;
@@ -27,6 +22,11 @@
         align-items: center;  
     }
 
+    .thebooks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
 </style>
 </head>
@@ -34,7 +34,7 @@
 <body class="flex-column">
     <header class="thestart">
         <figure class="image center">
-            <img src="./assets/img.jpg" style="max-width: 512px;">
+            <img src="./assets/img.jpg" style="max-width: 300px;">
         </figure>
 <!--What is Bind?-->        
 <section class="section">
@@ -42,14 +42,13 @@
         <div class="columns">
             <div class="column">
                 <div class="notification">
-                    <p class="is-size-5">
+                    <p class="is-size-6 has-background-success">
                     Welcome to Bind!
                     We are an affordable monthly subscription for book lovers or book
                     lovers-to-be to increase access to literature. 
                     You can access books by searching for a book title or pick a genre you
                     love and see what we recommend. The books can either be provided to you by physical copy (old skool) 
                     or by pdf (new skool). Choose what you love, what's your bind?
-                    
                     </p>
                 </div>
 </header>
@@ -60,11 +59,10 @@
         <div class="columns">
             <div class="column">
                 <h3 class="card-header text-uppercase is-size-4">Search By Title</h3>
-                <form id="user-form" class="card-body">
                 <label class="form-label" for="username">Book Title:</label>
-                <input class="button" type="text" value="">
-                <button class="button is-white">Get-Bind</button>
-                </form>  
+                <input class="button" id="input" type="text" value="">
+                <button class="button is-white" onclick="getbooks()">Get-Bind</button>
+
             </div>
         </div>
 
@@ -81,15 +79,15 @@
     </div>
     
     <div class="thebooks">
-        <h2 class="showbooks">Show Binds:<span id="repo-for-books"></span></h2>
+        <h2 class="card-header showbooks is-size-4">Show Binds:<span id="repo-for-books"></span></h2>
         <div 
-        id="book-container" class="list-books">
+        id="output"
         </div>
     </div>  
 </section>
 
 
 
-
+<script src="./assets/script.js"></script>
 </body>
 </html>

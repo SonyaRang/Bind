@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="html has-background-success" lang="en" >
+<html class="html1 has-background-white" lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--bulma-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Bind</title>
 <style>
-
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .center {
         display: flex;
         justify-content: center;
@@ -31,63 +41,100 @@
 </style>
 </head>
 <!--Bind Title-->
-<body class="flex-column">
-    <header class="thestart">
-        <figure class="image center">
+<body class="hero">
+<header class="thestart">
+        <figure class="image center is-rounded">
             <img src="./assets/img.jpg" style="max-width: 300px;">
         </figure>
 <!--What is Bind?-->        
-<section class="section">
+<section class="section has-background-primary">
     <div class="container">
         <div class="columns">
             <div class="column">
-                <div class="notification">
-                    <p class="is-size-6 has-background-success">
-                    Welcome to Bind!
-                    We are an affordable monthly subscription for book lovers or book
-                    lovers-to-be to increase access to literature. 
-                    You can access books by searching for a book title or pick a genre you
-                    love and see what we recommend. The books can either be provided to you by physical copy (old skool) 
-                    or by pdf (new skool). Choose what you love, what's your bind?
+                <div class="content">
+                    <h1 class="title has-background-white">Welcome to Bind</h1>
+                    <p class="notification is-size-6 has-background-white style="max-width: 300px;">
+                        a search engine designed for book lovers by book lovers. With our search engine you can find books by titles.
+                        Then with an isbn code all you need to do is plug it in and find your formatted pdf book.
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
 </header>
 
 <!--main-->
-<section class="main is-primary">
+<section class="hero is-white">
+<figure class="image is-128x128">
+    <img src="./assets/transparent-ebook-icon-school-icon-book-icon-5e32082aade733.2374321515803371947123-removebg-preview (1).png">
+</figure>
 <div class="container">
         <div class="columns">
             <div class="column">
-                <h3 class="card-header text-uppercase is-size-4">Search By Title</h3>
+                <h3 class="card-header text-uppercase is-size-4 is-white">Search By Title</h3>
                 <label class="form-label" for="username">Book Title:</label>
                 <input class="button" id="input" type="text" value="">
-                <button class="button is-white" onclick="getbooks()">Get-Bind</button>
-
+                <button class="button is-info" onclick="getbooks()">Get-Bind</button>
             </div>
         </div>
-
-    <div class="Genres">
-        <h3 class="card-header is-size-4">Search By Genre</h3>
-        <div id="language-buttons" class="card-body">
-        <label class="genretype" for="types-of-books">Genres:</label>
-        <button class="btn is-white">Romance</button>
-        <button class="btn is-white">Mystery</button>
-        <button class="btn is-white">Horror</button>
-        </div>
-
     </div>
-    </div>
-    
-    <div class="thebooks">
-        <h2 class="card-header showbooks is-size-4">Show Binds:<span id="repo-for-books"></span></h2>
-        <div 
-        id="output"
+
+    <div class="hero">
+        <div class="columns">
+            <div class="column">
+                <h3 class="card-header text-uppercase is-size-4 is-white">Show Binds:<span id="repo-for-books"></span></h3>
+                <div id="output"></div>
+            </div>
         </div>
-    </div>  
+    </div>    
 </section>
 
+<section>
+    <div class="hero is-size-4 has-background-info">
+        <div class="card text-white bg-dark mb-3 float-left shadow-lg" style="max-width: 20rem;">
+            <div class="card-body has-background-info">
+                <h4 class="hero has-background-info">Type your ISBN below</h4>
+                <input type="text" class="form-control" id="isbn" placeholder="Enter ISBN">
+                <button id="btn">Start Reading</button>
+            </div>
+        </div>
+    </div>
 
+    <div id="viewerCanvas" style="width: 800px; height: 800px" class="mr-3 float-right"></div>
+</section>
 
-<script src="./assets/script.js"></script>
-</body>
+<footer>
+    <h2>Made by Ronald Main & Sonya Rangraj </h2>
+        <div>
+            <a href="./privacypolicy.html">Read Our Privacy Policy</a><br />
+            &copy; 2021 Bind, Inc.
+        </div>
+</footer>
+
+    <script src="./assets/script.js"></script>
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+        <script>
+            const button = document.querySelector("#btn");
+                const isbn = document.querySelector("#isbn");
+
+                button.addEventListener("click",initialiase);
+
+                google.books.load({"language":"en"});
+
+                function nextStep(viewer){
+                    window.setTimeout(function(){
+                        viewer.nextPage()
+                        nextStep(viewer);
+                    })
+                }
+
+                function initialiase(){
+                    var viewer = new google.books.DefaultViewer(document.getElementById("viewerCanvas"));
+                    viewer.load("ISBN:" + isbn.value);
+                }
+
+            google.books.setOnLoadCallback(initialiase);   
+        </script>
+    </body>
 </html>

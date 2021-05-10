@@ -37,9 +37,9 @@
         justify-content: center;
         align-items: center;
     }
-    
 </style>
 </head>
+<div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
 <!--Bind Title-->
 <body class="hero">
 <header class="thestart">
@@ -65,14 +65,14 @@
 </header>
 
 <!--main-->
-<section class="hero is-white">
+<section class="hero">
 <figure class="image is-128x128">
     <img src="./assets/transparent-ebook-icon-school-icon-book-icon-5e32082aade733.2374321515803371947123-removebg-preview (1).png">
 </figure>
 <div class="container">
         <div class="columns">
             <div class="column">
-                <h3 class="card-header text-uppercase is-size-4 is-white">Search By Title</h3>
+                <h3 class="card-header text-uppercase is-size-4">Search By Title</h3>
                 <label class="form-label" for="username">Book Title:</label>
                 <input class="button" id="input" type="text" value="">
                 <button class="button is-info" onclick="getbooks()">Get-Bind</button>
@@ -83,7 +83,7 @@
     <div class="hero">
         <div class="columns">
             <div class="column">
-                <h3 class="card-header text-uppercase is-size-4 is-white">Show Binds:<span id="repo-for-books"></span></h3>
+                <h3 class="card-header text-uppercase is-size-4">Show Binds:<span id="repo-for-books"></span></h3>
                 <div id="output"></div>
             </div>
         </div>
@@ -114,6 +114,8 @@
 
     <script src="./assets/script.js"></script>
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+
         <script>
             const button = document.querySelector("#btn");
                 const isbn = document.querySelector("#isbn");
